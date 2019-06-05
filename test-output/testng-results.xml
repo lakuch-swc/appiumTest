@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="32958" started-at="2019-06-04T20:22:43Z" finished-at="2019-06-04T20:23:16Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="32958" started-at="2019-06-04T20:22:43Z" finished-at="2019-06-04T20:23:16Z">
+      <class name="appiumTest.searchTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="setup" is-config="true" duration-ms="15900" started-at="2019-06-04T20:22:43Z" finished-at="2019-06-04T20:22:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="searchTextFileForUser()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="searchTextFileForUser" duration-ms="17025" started-at="2019-06-04T20:22:59Z" finished-at="2019-06-04T20:23:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchTextFileForUser -->
+      </class> <!-- appiumTest.searchTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
