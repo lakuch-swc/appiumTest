@@ -1,18 +1,11 @@
 //package <set your test package>;
 package appiumTest;
 
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class createUser extends BaseClass{
 	
@@ -21,18 +14,13 @@ public class createUser extends BaseClass{
 	  public static String testEmailCredentials = "milleroks1992+";
 	  public static String testEmailProvider = "@gmail.com";
 	  public static String enter = "\n";
-	
-	@BeforeTest
-	public void testSetUp() {
-		setup(); // from BaseClass
-	}
    
 	@Test
-	 public static void createStandartUser(AppiumDriver<MobileElement>driver){
+	 public static void createStandartUser(){
         //Test starts from Splash Screen Activity
         // Click Join Now and go to Activity_Join_Step_One
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/linearLayoutT")));
-        MobileElement join = driver.findElement(By.id("com.mindshare.magnifi:id/linearLayoutT"));
+        MobileElement join = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/linearLayoutT"));
         join.click();
 
         //Registration process has 4 Steps, step is mandatory, entering name others are optional.
@@ -98,15 +86,21 @@ public class createUser extends BaseClass{
 	}
 	
 	public static void takePhoto(){
+		//Click add photo
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/cameraLinearLayout")));
         MobileElement camera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/cameraLinearLayout"));
         camera.click();
+        //Choose option 'Take a photo'
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Take Photo']")));
         driver.findElement(By.xpath("//*[@text='Take Photo']")).click();
+        //Inside the camera take a photo
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.camera2:id/shutter_button")));
-        driver.findElement(By.id("com.android.camera2:id/shutter_button")).click();
+        MobileElement btn_shutter = (MobileElement) driver.findElement(By.id("com.android.camera2:id/shutter_button"));
+        btn_shutter.click();
+        // Inside the camera click 'done'
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.camera2:id/done_button")));
-        driver.findElement(By.id("com.android.camera2:id/done_button")).click();
+        MobileElement btn_done = (MobileElement) driver.findElement(By.id("com.android.camera2:id/done_button"));
+        btn_done.click();
 	}
 	
 	public static void enableLocation() {
@@ -138,9 +132,4 @@ public class createUser extends BaseClass{
         MobileElement txtCVV = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/et_cvc_number"));
         txtCVV.setValue("123");
 	}
-		
-	@AfterTest
-	public void Testteardown() {
-		teardown(); // from BaseClass
-	}    
 }

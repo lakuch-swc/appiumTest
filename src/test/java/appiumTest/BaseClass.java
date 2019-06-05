@@ -26,8 +26,8 @@ public class BaseClass {
 		dc.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30);
         dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.mindshare.magnifi");
-        //dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".view.SplashScreenActivity");
-        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".view.ExpertSearchActivity");
+        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".view.SplashScreenActivity");
+        //dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".view.ExpertSearchActivity");
         dc.setCapability("autoGrantPermissions", true);
         dc.setCapability("autoAcceptAlerts", true);
         dc.setCapability("autoDismissAlerts", true);
