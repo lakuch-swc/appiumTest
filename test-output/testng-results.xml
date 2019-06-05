@@ -2,19 +2,80 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="27082" started-at="2019-06-05T14:38:07Z" finished-at="2019-06-05T14:38:34Z">
+  <suite name="Default suite" duration-ms="22518" started-at="2019-06-05T15:59:03Z" finished-at="2019-06-05T15:59:26Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="27082" started-at="2019-06-05T14:38:07Z" finished-at="2019-06-05T14:38:34Z">
+    <test name="Default test" duration-ms="22518" started-at="2019-06-05T15:59:03Z" finished-at="2019-06-05T15:59:26Z">
       <class name="appiumTest.searchTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="setup" is-config="true" duration-ms="12597" started-at="2019-06-05T14:38:07Z" finished-at="2019-06-05T14:38:19Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="setup" is-config="true" duration-ms="9485" started-at="2019-06-05T15:59:03Z" finished-at="2019-06-05T15:59:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="searchTextFileForUser()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="searchTextFileForUser" duration-ms="14443" started-at="2019-06-05T14:38:19Z" finished-at="2019-06-05T14:38:34Z">
+        <test-method status="PASS" signature="searchTextFileForUser()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="searchTextFileForUser" duration-ms="12955" started-at="2019-06-05T15:59:13Z" finished-at="2019-06-05T15:59:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchTextFileForUser -->
+        <test-method status="FAIL" signature="teardown()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="teardown" is-config="true" duration-ms="23" started-at="2019-06-05T15:59:26Z" finished-at="2019-06-05T15:59:26Z">
+          <exception class="org.openqa.selenium.UnsupportedCommandException">
+            <message>
+              <![CDATA[Method has not yet been implemented
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-R0SKLPQ', ip: '192.168.211.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {appActivity: .view.ExpertSearchActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, databaseEnabled: false, desired: {appActivity: .view.ExpertSearchActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, deviceName: Pixel, newCommandTimeout: 30, noReset: true, platformName: android, platformVersion: 8.0.0, udid: emulator-5554}, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenSize: 1440x2560, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 30, noReset: true, platform: LINUX, platformName: LINUX, platformVersion: 9, takesScreenshot: true, udid: emulator-5554, warnings: {}, webStorageEnabled: false}
+Session ID: adabc091-008c-4ff9-a976-f7f663a8bd5e]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.UnsupportedCommandException: Method has not yet been implemented
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-R0SKLPQ', ip: '192.168.211.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {appActivity: .view.ExpertSearchActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, databaseEnabled: false, desired: {appActivity: .view.ExpertSearchActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, deviceName: Pixel, newCommandTimeout: 30, noReset: true, platformName: android, platformVersion: 8.0.0, udid: emulator-5554}, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenSize: 1440x2560, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 30, noReset: true, platform: LINUX, platformName: LINUX, platformVersion: 9, takesScreenshot: true, udid: emulator-5554, warnings: {}, webStorageEnabled: false}
+Session ID: adabc091-008c-4ff9-a976-f7f663a8bd5e
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:46)
+at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:442)
+at appiumTest.searchTest.teardown(searchTest.java:93)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.TestRunner.afterRun(TestRunner.java:725)
+at org.testng.TestRunner.run(TestRunner.java:509)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.UnsupportedCommandException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
       </class> <!-- appiumTest.searchTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
