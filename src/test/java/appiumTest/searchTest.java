@@ -90,7 +90,6 @@ public class searchTest {
 	
 	@AfterTest
 	public void teardown() {
-		driver.close();
 		driver.quit();
 	}
   
