@@ -5,9 +5,7 @@
     <classes>
       <class name="appiumTest.createUser">
         <methods>
-          <include name="testSetUp"/>
           <include name="createStandartUser"/>
-          <include name="Testteardown"/>
           <include name="setup"/>
         </methods>
       </class> <!-- appiumTest.createUser -->
