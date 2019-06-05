@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28589" started-at="2019-06-05T14:33:56Z" finished-at="2019-06-05T14:34:24Z">
+  <suite name="Default suite" duration-ms="27082" started-at="2019-06-05T14:38:07Z" finished-at="2019-06-05T14:38:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28589" started-at="2019-06-05T14:33:56Z" finished-at="2019-06-05T14:34:24Z">
+    <test name="Default test" duration-ms="27082" started-at="2019-06-05T14:38:07Z" finished-at="2019-06-05T14:38:34Z">
       <class name="appiumTest.searchTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="setup" is-config="true" duration-ms="13655" started-at="2019-06-05T14:33:56Z" finished-at="2019-06-05T14:34:09Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="setup" is-config="true" duration-ms="12597" started-at="2019-06-05T14:38:07Z" finished-at="2019-06-05T14:38:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="searchTextFileForUser()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="searchTextFileForUser" duration-ms="14891" started-at="2019-06-05T14:34:10Z" finished-at="2019-06-05T14:34:24Z">
+        <test-method status="PASS" signature="searchTextFileForUser()[pri:0, instance:appiumTest.searchTest@4667ae56]" name="searchTextFileForUser" duration-ms="14443" started-at="2019-06-05T14:38:19Z" finished-at="2019-06-05T14:38:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchTextFileForUser -->

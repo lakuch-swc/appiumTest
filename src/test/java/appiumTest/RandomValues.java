@@ -16,7 +16,7 @@ public class RandomValues {
     }
 
     public String getPassword(){
-        String password = "Te$tTe$t";
+        String password = "Te$tTe$t123";
         return password;
     }
 }
