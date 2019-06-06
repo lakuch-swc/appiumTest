@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.AppiumDriver;
@@ -36,7 +37,6 @@ public class BaseClass {
 		try {
 			URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getCause());
 			System.out.println(e.getMessage());;
 			e.printStackTrace();
@@ -46,8 +46,8 @@ public class BaseClass {
 		
 	}
 	
+	@AfterTest
 	public void teardown() {
-		driver.close();
 		driver.quit();
 	}
 }
