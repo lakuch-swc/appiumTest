@@ -1,8 +1,11 @@
 package appiumTest;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -14,7 +17,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseClass {
 
-	static AppiumDriver driver;
+	protected static AppiumDriver<MobileElement> driver;
 	
 	@BeforeTest
 	public void setup() {
@@ -28,7 +31,6 @@ public class BaseClass {
 		dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30);
         dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.mindshare.magnifi");
         dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".view.SplashScreenActivity");
-        //dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".view.ExpertSearchActivity");
         dc.setCapability("autoGrantPermissions", true);
         dc.setCapability("autoAcceptAlerts", true);
         dc.setCapability("autoDismissAlerts", true);
@@ -50,4 +52,21 @@ public class BaseClass {
 	public void teardown() {
 		driver.quit();
 	}
+	
+	public void screenshot(String pathScreenshot) throws IOException {
+		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
+
+		String folderPath = pathScreenshot + "\\" + deviceName;
+		File folder = new File(folderPath);
+		
+		try {
+			folder.mkdir();
+		} finally {}
+		
+		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
+		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
+	    File targetFile = new File(folderPath + "\\" + filename +".jpg");
+	    FileUtils.copyFile(srcFile, targetFile);
+	}
+	
 }
