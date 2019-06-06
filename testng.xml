@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="appiumTest.search"/>
+      <class name="appiumTest.makeACall"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
