@@ -2,20 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8720" started-at="2019-06-06T14:58:38Z" finished-at="2019-06-06T14:58:47Z">
+  <suite name="Default suite" duration-ms="127877" started-at="2019-06-06T19:24:16Z" finished-at="2019-06-06T19:26:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8720" started-at="2019-06-06T14:58:38Z" finished-at="2019-06-06T14:58:47Z">
-      <class name="appiumTest.becomeExpert">
-        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.becomeExpert@53b32d7]" name="setup" is-config="true" duration-ms="8661" started-at="2019-06-06T14:58:38Z" finished-at="2019-06-06T14:58:47Z">
+    <test name="Default test" duration-ms="127877" started-at="2019-06-06T19:24:16Z" finished-at="2019-06-06T19:26:23Z">
+      <class name="appiumTest.createUser">
+        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.createUser@77cd7a0]" name="setup" is-config="true" duration-ms="7347" started-at="2019-06-06T19:24:16Z" finished-at="2019-06-06T19:24:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="createExpertProfile()[pri:0, instance:appiumTest.becomeExpert@53b32d7]" name="createExpertProfile" duration-ms="13" started-at="2019-06-06T14:58:47Z" finished-at="2019-06-06T14:58:47Z">
+        <test-method status="PASS" signature="createStandartUser()[pri:0, instance:appiumTest.createUser@77cd7a0]" name="createStandartUser" duration-ms="118746" started-at="2019-06-06T19:24:23Z" finished-at="2019-06-06T19:26:22Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createExpertProfile -->
-      </class> <!-- appiumTest.becomeExpert -->
+        </test-method> <!-- createStandartUser -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:appiumTest.createUser@77cd7a0]" name="teardown" is-config="true" duration-ms="1739" started-at="2019-06-06T19:26:22Z" finished-at="2019-06-06T19:26:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- appiumTest.createUser -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

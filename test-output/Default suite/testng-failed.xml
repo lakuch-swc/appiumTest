@@ -6,6 +6,7 @@
       <class name="appiumTest.createUser">
         <methods>
           <include name="createStandartUser"/>
+          <include name="teardown"/>
           <include name="setup"/>
         </methods>
       </class> <!-- appiumTest.createUser -->
