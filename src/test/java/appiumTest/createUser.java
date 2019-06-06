@@ -93,11 +93,18 @@ public class createUser extends BaseClass{
 	}
 	
 	public static void openCamera(){
-		//Click add photo
-		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/cameraLinearLayout")));
-        MobileElement openCamera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/cameraLinearLayout"));
-        openCamera.click();
-	}
+		//Click add photo, if photo is added already 
+			try {
+				new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/cameraLinearLayout")));
+		        MobileElement openCamera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/cameraLinearLayout"));
+		        openCamera.click();
+			}catch(Exception e) {
+				new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/editPhotoTextView")));
+		        MobileElement openCamera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/editPhotoTextView"));
+		        openCamera.click();
+			}
+		}
+		
 	
 	public static void enableLocation() {
 		 new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/sbLocation")));

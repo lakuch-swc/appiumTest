@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import io.appium.java_client.MobileElement;
 
 public class createExpert extends BaseClass {
+	public static Camera camera = new Camera();
 
 	public static String strTitle = "AutomationTesting";
 	public static String strDescription = "Testing: here should be additional information about the expert";
@@ -42,13 +43,13 @@ public class createExpert extends BaseClass {
          //Add category. Expert has to add at least 1 category (up to 3)
          new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/categoryTextView")));
          MobileElement addCategory = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/categoryTextView"));
-         addCategory.click();
-//         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.TextView")));
-//         MobileElement category = (MobileElement) driver.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.TextView"));
+//         addCategory.click();
+//         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Art']")));
+//         MobileElement category = (MobileElement) driver.findElement(By.xpath("//*[@text='Art']"));
 //         category.click();
          nextStep();    
          //Add tags (adding tags are optional)
-         addTags();
+        // addTags();
          nextStep();
          
          //Step 2: add social feeds (optional)
@@ -59,9 +60,9 @@ public class createExpert extends BaseClass {
          new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/cameraLinearLayout")));
          MobileElement addMedia = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/cameraLinearLayout"));
          addMedia.click();
-         //takeVideo();
-         //takePhoto();
-         //chooseFromLibrary();
+         //camera.takeVideo(driver);
+         //camera.takePhoto();
+         camera.chooseFromLibrary(driver);
 	}
 	
 	public static void nextStep(){

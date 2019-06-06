@@ -28,6 +28,15 @@ public class Camera {
 		}
 	
 	public void chooseFromLibrary(AppiumDriver driver) {
-		
+		 //Choose option 'Choose from your library'
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Choose from your Library']")));
+        driver.findElement(By.xpath("//*[@text='Choose from your Library']")).click();
+		//Choose the first folder (Camera)
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.RelativeLayout[@index='1']")));
+        driver.findElement(By.xpath("//android.widget.RelativeLayout[@index='1']")).click();
+        //Choose the first photo
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.view.ViewGroup[@index='1']")));
+        driver.findElement(By.xpath("//android.view.ViewGroup[@index='1']")).click();
+        
 	}
 }
