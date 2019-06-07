@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class createUser extends BaseClass{
 	
 	  public static RandomValues randomValues = new RandomValues();
+	  public static Camera camera = new Camera();
 	  // Declare basic credentials for alias registration
 	  public static String testEmailCredentials = "milleroks1992+";
 	  public static String testEmailProvider = "@gmail.com";
@@ -30,8 +31,10 @@ public class createUser extends BaseClass{
         nextStep();
         
         //Step 2:
-        //Add photo (Choose one of the methods or skip this step):
-        takePhoto();  //chooseFromLibrary();    
+        //Add photo (Choose takePhoto or chooseFromLibrary method):
+        openCamera();
+        camera.takePhoto(driver);
+        //camera.chooseFromLibrary(driver);
         enterFullName();
         nextStep();
 
@@ -39,10 +42,14 @@ public class createUser extends BaseClass{
         enableLocation();
         enableNotification();
         nextStep();
-       
-        //Step 4: Add credit card
+              
+        //Step 4: Add credit card (add a card or skip the step)
         addCreditCard();
+        //skipAddingCard();
         nextStep();
+        
+        //Finish
+        clickSearch();       
     }
 	
 	public static void nextStep(){
@@ -85,23 +92,19 @@ public class createUser extends BaseClass{
         txtLastName.sendKeys(randomValues.getRandomName() + enter);
 	}
 	
-	public static void takePhoto(){
-		//Click add photo
-		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/cameraLinearLayout")));
-        MobileElement camera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/cameraLinearLayout"));
-        camera.click();
-        //Choose option 'Take a photo'
-        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Take Photo']")));
-        driver.findElement(By.xpath("//*[@text='Take Photo']")).click();
-        //Inside the camera take a photo
-        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.camera2:id/shutter_button")));
-        MobileElement btn_shutter = (MobileElement) driver.findElement(By.id("com.android.camera2:id/shutter_button"));
-        btn_shutter.click();
-        // Inside the camera click 'done'
-        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.camera2:id/done_button")));
-        MobileElement btn_done = (MobileElement) driver.findElement(By.id("com.android.camera2:id/done_button"));
-        btn_done.click();
-	}
+	public static void openCamera(){
+		//Click add photo, if photo is added already 
+			try {
+				new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/cameraLinearLayout")));
+		        MobileElement openCamera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/cameraLinearLayout"));
+		        openCamera.click();
+			}catch(Exception e) {
+				new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/editPhotoTextView")));
+		        MobileElement openCamera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/editPhotoTextView"));
+		        openCamera.click();
+			}
+		}
+		
 	
 	public static void enableLocation() {
 		 new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/sbLocation")));
@@ -131,5 +134,11 @@ public class createUser extends BaseClass{
         txtExpDate.setValue("1219");
         MobileElement txtCVV = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/et_cvc_number"));
         txtCVV.setValue("123");
+	}
+	
+	public static void clickSearch(){
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/btnSearch")));
+        MobileElement btnSearch = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/btnSearch"));
+        btnSearch.click();
 	}
 }
