@@ -14,7 +14,7 @@ import com.google.common.collect.ImmutableMap;
 public class searchTest extends BaseClass {
 	
 	File userFile = new File("users.txt");
-	String screenshotLocation = "C:\\Users\\student\\Desktop\\";
+	String screenshotLocation = System.getProperty("user.home") + "/Desktop"; 
 	
 	@Test
 	public void searchTextFileForUser() throws IOException, InterruptedException {
