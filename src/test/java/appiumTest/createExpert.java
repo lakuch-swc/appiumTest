@@ -118,7 +118,7 @@ public class createExpert extends BaseClass {
         MobileElement addBankAccount = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/addCreditCardButton"));
         addBankAccount.click();
         //Click development mode: skip
-        new WebDriverWait(driver, 120).until(ExpectedConditions.presenceOfElementLocated(By.id("By.xpath(\"//*[@text='Skip this account form']\")")));
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("By.xpath(\"//*[@text='Skip this account form']\")")));
         MobileElement skip = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/Skip this account form"));
         skip.click();
 	}
