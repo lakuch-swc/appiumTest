@@ -123,6 +123,13 @@ public class createUser extends BaseClass{
         txtCVV.setValue("123");
 	}
 	
+	public static void skipAddingCard(){
+		//Click 'Remind me later' link
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/txtRemindMeLater")));
+        MobileElement remindLater = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/txtRemindMeLater"));
+        remindLater.click();
+	}
+	
 	public static void clickSearch(){
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/btnSearch")));
         MobileElement btnSearch = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/btnSearch"));
