@@ -29,6 +29,7 @@ public class BaseClass {
 		dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0.0");
 		dc.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel");
 		dc.setCapability(MobileCapabilityType.UDID, "emulator-5554");
+		//dc.setCapability(MobileCapabilityType.UDID, "ce0817183134080403");
 		dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30);
         dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.mindshare.magnifi");
         dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".view.SplashScreenActivity");
