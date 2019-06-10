@@ -2,11 +2,12 @@ package appiumTest;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -36,14 +37,6 @@ public class BaseClass {
         dc.setCapability("autoDismissAlerts", true);
         dc.setCapability("noReset", true);
 
-		try {
-			URL url = new URL("http://127.0.0.1:4723/wd/hub");
-		} catch (MalformedURLException e) {
-			System.out.println(e.getCause());
-			System.out.println(e.getMessage());;
-			e.printStackTrace();
-		}
-
 		driver = new AppiumDriver<MobileElement>(dc);
 		
 	}
@@ -67,6 +60,21 @@ public class BaseClass {
 		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
 	    File targetFile = new File(folderPath + "\\" + filename +".jpg");
 	    FileUtils.copyFile(srcFile, targetFile);
+	}
+	
+	public void login(String email, String password) throws InterruptedException {
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text='Log in']"))).click();
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/txtEmail"))).sendKeys(email);
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/txtPassword"))).sendKeys(password);
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/logInButton"))).click();
+		Thread.sleep(5000);
+	}
+	
+	public void logout() throws InterruptedException {
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
+		Thread.sleep(2000);
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text='Log out']"))).click();
 	}
 	
 }
