@@ -1,10 +1,10 @@
 package appiumTest;
 
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
 import com.google.common.collect.ImmutableMap;
 
 public class SendChatMessages extends BaseClass {
-	
-	String userName = "salahdau@yahoo.com";
-	String passWord = "Abcd1234";
+	final String screenshotsFolder = "C:\\Users\\student\\Desktop\\";
+	final String userName = "salahdau@yahoo.com";
+	final String passWord = "Abcd1234";
 	
     @BeforeTest
     // Called from BaseClass
@@ -24,10 +24,12 @@ public class SendChatMessages extends BaseClass {
     }	
 
     @Test
-    public void testSendChatMessages() {
+    public void testSendChatMessages() throws IOException {
+    	//make sure user is logged in, then get a screenshot of activity.
         try 
         {
 	 	  login(userName, passWord);
+	   	  screenshot(screenshotsFolder);
         } 
         catch (InterruptedException e) 
         {
@@ -35,22 +37,40 @@ public class SendChatMessages extends BaseClass {
         }
         
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/expertSearchEditText"))).sendKeys("lakuch");
-       
+        screenshot(screenshotsFolder);
+        
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Search"));
+        screenshot(screenshotsFolder);
         
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/chatImageView"))).click();
+        screenshot(screenshotsFolder);
+
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/chatImageView"))).click();
+        screenshot(screenshotsFolder);
+
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/message"))).click();
+        screenshot(screenshotsFolder);
+
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/message"))).sendKeys("Hi my name is Salah");     
+        screenshot(screenshotsFolder);
+
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/btn_send"))).click();       
+        screenshot(screenshotsFolder);
+        
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/backTextView"))).click();   
-        new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/backTextView"))).click(); //com.mindshare.magnifi:id/backImageButton
+        screenshot(screenshotsFolder);
+        
+        new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/backTextView"))).click(); 
+        screenshot(screenshotsFolder);
+        
         new WebDriverWait(driver, 50).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
+        screenshot(screenshotsFolder);
         
         try 
         {
 		  logout();
-		} 
+	        screenshot(screenshotsFolder);
+        } 
         catch (InterruptedException e) 
         {
 		  e.printStackTrace();
@@ -64,6 +84,8 @@ public class SendChatMessages extends BaseClass {
         {
 		  e.printStackTrace();
 		}       
+        
+        screenshot(screenshotsFolder);        
     }
 
 	@AfterTest
