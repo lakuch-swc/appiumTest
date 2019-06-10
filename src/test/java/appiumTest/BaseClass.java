@@ -13,8 +13,6 @@ import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.Activity;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
@@ -52,16 +50,35 @@ public class BaseClass {
 	public void screenshot(String pathScreenshot) throws IOException {
 		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
 
-		String folderPath = pathScreenshot + "\\" + deviceName;
-		File folder = new File(folderPath);
+		String parentFolderPath = pathScreenshot + "\\" + deviceName;
+		File parentFolder = new File(parentFolderPath);
 		
 		try {
-			folder.mkdir();
+			parentFolder.mkdir();
 		} finally {}
 		
 		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
 		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
-	    File targetFile = new File(folderPath + "\\" + filename +".jpg");
+	    File targetFile = new File(parentFolderPath + "\\" + filename +".jpg");
+	    FileUtils.copyFile(srcFile, targetFile);
+	}
+	
+	public void screenshot(String pathScreenshot, String folderName) throws IOException {
+		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
+
+		String parentFolderPath = pathScreenshot + "\\" + deviceName;
+		File parentFolder = new File(parentFolderPath);
+		String childFolderPath = parentFolder + "\\" + folderName;
+		File childFolder = new File(childFolderPath);
+		
+		try {
+			parentFolder.mkdir();
+			childFolder.mkdir();
+		} finally {}
+		
+		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
+		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
+	    File targetFile = new File(childFolderPath + "\\" + filename +".jpg");
 	    FileUtils.copyFile(srcFile, targetFile);
 	}
 	
