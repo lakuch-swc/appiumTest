@@ -1,4 +1,6 @@
 package appiumTest;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,8 +24,8 @@ public class createExpert extends BaseClass {
 		 navigateToBecomeExpertScreen();
 	         
          //Step 1: Create expert profile. Adding tags are optional
-		 enterExpertiseInfo();
-		 addCategory();       
+	//	 enterExpertiseInfo();
+//		 addCategory();       
          // addTags();
          nextStep();
          
@@ -32,8 +34,8 @@ public class createExpert extends BaseClass {
          nextStep();
          
          //Step 3: Intro video (mandatory): Choose choose the method
-         camera.openCamera(driver);
-         camera.takePhoto(driver);
+ //        camera.openCamera(driver);
+//         camera.takePhoto(driver);
          //camera.takeVideo(driver);
          //camera.chooseFromLibrary(driver);
          nextStep();
@@ -118,9 +120,13 @@ public class createExpert extends BaseClass {
         MobileElement addBankAccount = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/addCreditCardButton"));
         addBankAccount.click();
         //Click development mode: skip
-        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("By.xpath(\"//*[@text='Skip this account form']\")")));
-        MobileElement skip = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/Skip this account form"));
-        skip.click();
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/webview")));
+
+        driver.context("WEBVIEW"); // set context to WEBVIEW_1
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("//*[@text='Skip']")));
+        driver.findElement(By.xpath("//*[@text='Skip']")).click();
+        driver.context("NATIVE_APP");
+
 	}
 	
 	public static void previewAndPublish(){
