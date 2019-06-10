@@ -9,9 +9,10 @@ import org.testng.annotations.Test;
 
 import com.google.common.collect.ImmutableMap;
 
-public class makeACall extends BaseClass {
+public class CallTest extends BaseClass {
 	
 	String screenshotLocation = System.getProperty("user.home") + "/Desktop"; 
+	String folderName = Long.toString(System.currentTimeMillis()) + "-callTest";
 	String user = "willisstudenttest+ws001@gmail.com";
 	String password = "1P@ssw0rd";
 	
@@ -24,40 +25,40 @@ public class makeACall extends BaseClass {
 			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
 			Thread.sleep(2000);
 		} finally {
-			screenshot(screenshotLocation);
+			screenshot(screenshotLocation, folderName);
 		}
 		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text='Search']"))).click();
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/expertSearchEditText"))).sendKeys("ws002");
-		screenshot(screenshotLocation);
+		screenshot(screenshotLocation, folderName);
 		driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Search"));
 		
 		try {
 			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.className("android.widget.RelativeLayout")));
 			Thread.sleep(2000);
 		} finally {
-			screenshot(screenshotLocation);
+			screenshot(screenshotLocation, folderName);
 		}
 		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/phoneImageView"))).click();
-		screenshot(screenshotLocation);
+		screenshot(screenshotLocation, folderName);
 		
 		try {
 			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/callImageView"))).click();
 			Thread.sleep(2000);
 		} finally {
-			screenshot(screenshotLocation);
+			screenshot(screenshotLocation, folderName);
 		}
 		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/goButton"))).click();
-		screenshot(screenshotLocation);
+		screenshot(screenshotLocation, folderName);
 		
 		Thread.sleep(20000);
 		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/connect_action_fab"))).click();
-		screenshot(screenshotLocation);
+		screenshot(screenshotLocation, folderName);
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/okButton"))).click();
-		screenshot(screenshotLocation);
+		screenshot(screenshotLocation, folderName);
 		
 	}
 }
