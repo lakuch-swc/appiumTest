@@ -16,12 +16,6 @@ public class SendChatMessages extends BaseClass {
 	final String screenshotsFolder = "C:\\Users\\student\\Desktop\\";
 	final String userName = "salahdau@yahoo.com";
 	final String passWord = "Abcd1234";
-	
-    @BeforeTest
-    // Called from BaseClass
-    public void testSetUp() {
-  	       setup(); 
-    }	
 
     @Test
     public void testSendChatMessages() throws IOException {
@@ -48,10 +42,7 @@ public class SendChatMessages extends BaseClass {
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/chatImageView"))).click();
         screenshot(screenshotsFolder);
 
-        new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/message"))).click();
-        screenshot(screenshotsFolder);
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/message"))).sendKeys("Hi my name is Salah");     
+        new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.EditText"))).sendKeys("Hi my name is Salah");     
         screenshot(screenshotsFolder);
 
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/btn_send"))).click();       
@@ -87,9 +78,4 @@ public class SendChatMessages extends BaseClass {
         
         screenshot(screenshotsFolder);        
     }
-
-	@AfterTest
-	public void TestTearDown() {
-		teardown(); 
-	} 	
 }

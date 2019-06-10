@@ -32,7 +32,7 @@ public class createUser extends BaseClass{
         
         //Step 2:
         //Add photo (Choose takePhoto or chooseFromLibrary method):
-        openCamera();
+        camera.openCamera(driver);
         camera.takePhoto(driver);
         //camera.chooseFromLibrary(driver);
         enterFullName();
@@ -91,19 +91,6 @@ public class createUser extends BaseClass{
         txtLastName.clear();
         txtLastName.sendKeys(randomValues.getRandomName() + enter);
 	}
-	
-	public static void openCamera(){
-		//Click add photo, if photo is added already 
-			try {
-				new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/cameraLinearLayout")));
-		        MobileElement openCamera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/cameraLinearLayout"));
-		        openCamera.click();
-			}catch(Exception e) {
-				new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/editPhotoTextView")));
-		        MobileElement openCamera = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/editPhotoTextView"));
-		        openCamera.click();
-			}
-		}
 		
 	
 	public static void enableLocation() {
