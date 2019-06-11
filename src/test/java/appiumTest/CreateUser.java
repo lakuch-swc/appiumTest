@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CreateUser extends BaseClass{
 	
 	  public static RandomValues randomValues = new RandomValues();
-	  public static Camera camera = new Camera();
+	  public static Camera Camera = new Camera();
 	  // Declare basic credentials for alias registration
 	  public static String testEmailCredentials = "milleroks1992+";
 	  public static String testEmailProvider = "@gmail.com";
@@ -39,8 +39,8 @@ public class CreateUser extends BaseClass{
         
         //Step 2:
         //Add photo (Choose takePhoto or chooseFromLibrary method):
-        camera.openCamera(driver);
-        camera.takePhoto(driver);
+        Camera.openCamera(driver);
+        Camera.takePhoto(driver);
         //camera.chooseFromLibrary(driver);
         enterFullName();
         driver.hideKeyboard();
@@ -132,6 +132,13 @@ public class CreateUser extends BaseClass{
         txtExpDate.setValue("1219");
         MobileElement txtCVV = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/et_cvc_number"));
         txtCVV.setValue("123");
+	}
+	
+	public static void skipAddingCard(){
+		//Click 'Remind me later' link
+		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/txtRemindMeLater")));
+        MobileElement remindLater = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/txtRemindMeLater"));
+        remindLater.click();
 	}
 	
 	public static void clickSearch(){
