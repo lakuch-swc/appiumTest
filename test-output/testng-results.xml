@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="126604" started-at="2019-06-10T13:16:16Z" finished-at="2019-06-10T13:18:23Z">
+  <suite name="Default suite" duration-ms="170115" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:09:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="126604" started-at="2019-06-10T13:16:16Z" finished-at="2019-06-10T13:18:23Z">
-      <class name="appiumTest.searchTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.searchTest@77cd7a0]" name="setup" is-config="true" duration-ms="41412" started-at="2019-06-10T13:16:16Z" finished-at="2019-06-10T13:16:58Z">
+    <test name="Default test" duration-ms="170115" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:09:12Z">
+      <class name="appiumTest.CreateUser">
+        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="setup" is-config="true" duration-ms="17448" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:06:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="searchTextFileForUser()[pri:0, instance:appiumTest.searchTest@77cd7a0]" name="searchTextFileForUser" duration-ms="82917" started-at="2019-06-10T13:16:58Z" finished-at="2019-06-10T13:18:21Z">
+        <test-method status="PASS" signature="createStandartUser()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="createStandartUser" duration-ms="150627" started-at="2019-06-11T17:06:39Z" finished-at="2019-06-11T17:09:10Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchTextFileForUser -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:appiumTest.searchTest@77cd7a0]" name="teardown" is-config="true" duration-ms="2238" started-at="2019-06-10T13:18:21Z" finished-at="2019-06-10T13:18:23Z">
+        </test-method> <!-- createStandartUser -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="teardown" is-config="true" duration-ms="2002" started-at="2019-06-11T17:09:10Z" finished-at="2019-06-11T17:09:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- appiumTest.searchTest -->
+      </class> <!-- appiumTest.CreateUser -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
