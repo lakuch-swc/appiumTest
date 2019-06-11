@@ -2,6 +2,7 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
   <suite name="Default suite" duration-ms="56824" started-at="2019-06-10T18:29:25Z" finished-at="2019-06-10T18:30:22Z">
     <groups>
     </groups>
@@ -90,6 +91,26 @@ at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- appiumTest.SendChatMessages -->
+=======
+  <suite name="Default suite" duration-ms="170115" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:09:12Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="170115" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:09:12Z">
+      <class name="appiumTest.CreateUser">
+        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="setup" is-config="true" duration-ms="17448" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:06:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="createStandartUser()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="createStandartUser" duration-ms="150627" started-at="2019-06-11T17:06:39Z" finished-at="2019-06-11T17:09:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createStandartUser -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="teardown" is-config="true" duration-ms="2002" started-at="2019-06-11T17:09:10Z" finished-at="2019-06-11T17:09:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- appiumTest.CreateUser -->
+>>>>>>> Development
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

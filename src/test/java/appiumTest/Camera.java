@@ -36,7 +36,7 @@ public class Camera {
         btn_done.click();
 	}
 	
-	public void takeVideo(AppiumDriver driver) {
+	public  void takeVideo(AppiumDriver driver) {
 		//Choose option 'Take Video'
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Take Video']")));
         driver.findElement(By.xpath("//*[@text='Take Video']")).click();
