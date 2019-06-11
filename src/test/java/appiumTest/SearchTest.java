@@ -23,7 +23,9 @@ public class SearchTest extends BaseClass {
 		BufferedReader bufferedReader = new BufferedReader(new FileReader(userFile));
 		
 		try {
+			
 			String user;
+			
 			while ((user = bufferedReader.readLine()) != null) {
 			
 				try {
