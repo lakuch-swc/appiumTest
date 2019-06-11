@@ -7,7 +7,7 @@ import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class createUser extends BaseClass{
+public class CreateUser extends BaseClass{
 	
 	  public static RandomValues randomValues = new RandomValues();
 	  public static Camera camera = new Camera();
