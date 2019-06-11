@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SendChatMessages extends BaseClass {
 	final String screenshotsFolder    = "C:\\Users\\student\\Desktop\\";
-	final String screenshotsSubFolder = "Salah";
+	final String screenshotsSubFolder = "SendChatMessages_Testing";
 	
 	final String userName   = "salahdau@yahoo.com";
 	final String passWord   = "Abcd1234";
