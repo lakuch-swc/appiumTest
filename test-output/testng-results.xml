@@ -1,116 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-<<<<<<< HEAD
-  <suite name="Default suite" duration-ms="56824" started-at="2019-06-10T18:29:25Z" finished-at="2019-06-10T18:30:22Z">
+  <suite name="Default suite" duration-ms="78389" started-at="2019-06-11T20:28:16Z" finished-at="2019-06-11T20:29:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="56824" started-at="2019-06-10T18:29:25Z" finished-at="2019-06-10T18:30:22Z">
-      <class name="appiumTest.SendChatMessages">
-        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.SendChatMessages@77cd7a0]" name="setup" is-config="true" duration-ms="7248" started-at="2019-06-10T18:29:25Z" finished-at="2019-06-10T18:29:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="FAIL" signature="testSendChatMessages()[pri:0, instance:appiumTest.SendChatMessages@77cd7a0]" name="testSendChatMessages" duration-ms="47870" started-at="2019-06-10T18:29:33Z" finished-at="2019-06-10T18:30:21Z">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for presence of element located by: By.id: com.mindshare.magnifi:id/expertSearchEditText (tried for 20 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.id: com.mindshare.magnifi:id/expertSearchEditText (tried for 20 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at appiumTest.SendChatMessages.testSendChatMessages(SendChatMessages.java:33)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-R0SKLPQ', ip: '192.168.211.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
-Driver info: io.appium.java_client.AppiumDriver
-Capabilities {appActivity: .view.SplashScreenActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, databaseEnabled: false, desired: {appActivity: .view.SplashScreenActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, deviceName: Pixel, newCommandTimeout: 30, noReset: true, platformName: android, platformVersion: 8.0.0, udid: emulator-5554}, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenSize: 480x800, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 30, noReset: true, platform: LINUX, platformName: LINUX, platformVersion: 8.1.0, takesScreenshot: true, udid: emulator-5554, warnings: {}, webStorageEnabled: false}
-Session ID: 304ef572-8e26-49cb-9c5b-ede449bd1fed
-*** Element info: {Using=id, value=com.mindshare.magnifi:id/expertSearchEditText}
-at sun.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:239)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:42)
-at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:62)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-at io.appium.java_client.DefaultGenericMobileDriver.findElementById(DefaultGenericMobileDriver.java:70)
-at io.appium.java_client.AppiumDriver.findElementById(AppiumDriver.java:1)
-at org.openqa.selenium.By$ById.findElement(By.java:188)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:58)
-at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
-at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 26 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testSendChatMessages -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:appiumTest.SendChatMessages@77cd7a0]" name="teardown" is-config="true" duration-ms="1662" started-at="2019-06-10T18:30:21Z" finished-at="2019-06-10T18:30:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- appiumTest.SendChatMessages -->
-=======
-  <suite name="Default suite" duration-ms="170115" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:09:12Z">
-    <groups>
-    </groups>
-    <test name="Default test" duration-ms="170115" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:09:12Z">
+    <test name="Default test" duration-ms="78389" started-at="2019-06-11T20:28:16Z" finished-at="2019-06-11T20:29:34Z">
       <class name="appiumTest.CreateUser">
-        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="setup" is-config="true" duration-ms="17448" started-at="2019-06-11T17:06:21Z" finished-at="2019-06-11T17:06:39Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:appiumTest.CreateUser@7d907bac]" name="setup" is-config="true" duration-ms="6840" started-at="2019-06-11T20:28:16Z" finished-at="2019-06-11T20:28:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="createStandartUser()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="createStandartUser" duration-ms="150627" started-at="2019-06-11T17:06:39Z" finished-at="2019-06-11T17:09:10Z">
+        <test-method status="PASS" signature="createStandartUser()[pri:0, instance:appiumTest.CreateUser@7d907bac]" name="createStandartUser" duration-ms="70187" started-at="2019-06-11T20:28:23Z" finished-at="2019-06-11T20:29:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createStandartUser -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:appiumTest.CreateUser@77cd7a0]" name="teardown" is-config="true" duration-ms="2002" started-at="2019-06-11T17:09:10Z" finished-at="2019-06-11T17:09:12Z">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:appiumTest.CreateUser@7d907bac]" name="teardown" is-config="true" duration-ms="1324" started-at="2019-06-11T20:29:33Z" finished-at="2019-06-11T20:29:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- appiumTest.CreateUser -->
->>>>>>> Development
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

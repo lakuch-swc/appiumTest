@@ -2,6 +2,10 @@
 package appiumTest;
 
 import org.testng.annotations.Test;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.By;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,15 +17,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateUser extends BaseClass{
 	
-	  public static RandomValues randomValues = new RandomValues();
-	  public static Camera Camera = new Camera();
+	  private RandomValues randomValues = new RandomValues();
+	  private Camera Camera = new Camera();
 	  // Declare basic credentials for alias registration
-	  public static String testEmailCredentials = "milleroks1992+";
-	  public static String testEmailProvider = "@gmail.com";
-	  public static String enter = "\n";
+	  private  String testEmailCredentials = "milleroks1992+";
+	  private String testEmailProvider = "@gmail.com";
+	  private String enter = "\n";
 	  // Declare screenshots path
-	  String screenshotLocation = System.getProperty("user.home") + "/Desktop"; 
-	  String folderName = Long.toString(System.currentTimeMillis()) + "-createStandardUser";
+	  private String screenshotLocation = System.getProperty("user.home") + "/Desktop"; 
+	  private String folderName = Long.toString(System.currentTimeMillis()) + "-createStandardUser";
+	  //Date
+	  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	  LocalDate localDate = LocalDate.now();
+	  String date = "" + dtf.format(localDate); 
    
 	@Test
 	 public void createStandartUser(){
@@ -32,7 +40,7 @@ public class CreateUser extends BaseClass{
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/linearLayoutT"))).click();
       
         //Step1: Enter Credentials
-        enterCredentials();
+       // enterCredentials();
         driver.hideKeyboard();
         screenshot(screenshotLocation, folderName);
         nextStep();
@@ -56,6 +64,7 @@ public class CreateUser extends BaseClass{
         //Step 4: Add credit card (add a card or skip the step, card is mandatory to make a call)
         addCreditCard();
         //skipAddingCard();
+        driver.hideKeyboard();
         screenshot(screenshotLocation, folderName);
         nextStep();
         
@@ -63,19 +72,19 @@ public class CreateUser extends BaseClass{
         clickSearch();       
     }
 	
-	public static void nextStep(){
+	public void nextStep(){
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/nextTextView")));
         MobileElement next = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/nextTextView"));
         next.click();
 	}
 	
-	public static void enterCredentials(){
+	public void enterCredentials(){
 		//Email
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/emailAddressEditText")));
         MobileElement txtEmail = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/emailAddressEditText"));
         txtEmail.clear();
         txtEmail.click();
-        txtEmail.sendKeys(testEmailCredentials + randomValues.getRandomAlias()+testEmailProvider + enter);
+        txtEmail.sendKeys(testEmailCredentials + date + randomValues.getRandomAlias()+testEmailProvider + enter);
         //Username
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/userNameEditText")));
         MobileElement txtUsername = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/userNameEditText"));
@@ -90,7 +99,7 @@ public class CreateUser extends BaseClass{
         txtPsw.sendKeys(randomValues.getPassword()+ enter);
 	}
 	
-	public static void enterFullName(){
+	public void enterFullName(){
 		//Enter First Name 
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/firstNameEditText")));
         MobileElement txtFirstName = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/firstNameEditText"));
@@ -100,21 +109,21 @@ public class CreateUser extends BaseClass{
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/lastNameEditText")));
         MobileElement txtLastName = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/lastNameEditText"));
         txtLastName.clear();
-        txtLastName.sendKeys(randomValues.getRandomName() + enter);
+        txtLastName.sendKeys(randomValues.getRandomName() + date + enter);
 	}
 		
 	
-	public static void enableLocation() {
+	public void enableLocation() {
 		 new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/sbLocation")));
 	     driver.findElement(By.id("com.mindshare.magnifi:id/sbLocation")).click();
 	}
 	
-	public static void enableNotification(){
+	public void enableNotification(){
 		 new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/sbPushNotification")));
 		 driver.findElement(By.id("com.mindshare.magnifi:id/sbPushNotification")).click();
 	}
 	
-	public static void addCreditCard(){
+	public void addCreditCard(){
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/addCreditCardButton")));
         MobileElement btnAddCreditCard = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/addCreditCardButton"));
         btnAddCreditCard.click();
@@ -134,16 +143,17 @@ public class CreateUser extends BaseClass{
         txtCVV.setValue("123");
 	}
 	
-	public static void skipAddingCard(){
+	public void skipAddingCard(){
 		//Click 'Remind me later' link
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/txtRemindMeLater")));
         MobileElement remindLater = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/txtRemindMeLater"));
         remindLater.click();
 	}
 	
-	public static void clickSearch(){
+	public void clickSearch(){
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/btnSearch")));
         MobileElement btnSearch = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/btnSearch"));
+        screenshot(screenshotLocation, folderName);
         btnSearch.click();
 	}
 }
