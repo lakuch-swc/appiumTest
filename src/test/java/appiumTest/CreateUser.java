@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CreateUser extends BaseClass{
 	
 	  public static RandomValues randomValues = new RandomValues();
-	  public static Camera camera = new Camera();
+	  public static Camera Camera = new Camera();
 	  // Declare basic credentials for alias registration
 	  public static String testEmailCredentials = "milleroks1992+";
 	  public static String testEmailProvider = "@gmail.com";
@@ -32,8 +32,8 @@ public class CreateUser extends BaseClass{
         
         //Step 2:
         //Add photo (Choose takePhoto or chooseFromLibrary method):
-        camera.openCamera(driver);
-        camera.takePhoto(driver);
+        Camera.openCamera(driver);
+        Camera.takePhoto(driver);
         //camera.chooseFromLibrary(driver);
         enterFullName();
         nextStep();
