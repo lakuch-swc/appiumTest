@@ -7,56 +7,45 @@ import io.appium.java_client.MobileElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-/* Test to register a standard Magnifi user. Registration process consists of 4 steps: step 1 and entering full name are mandatory,
- other steps are optional and can be skipped.
- Before running the test, make sure to adjust the basic credentials and the screenshots path */
-
 public class CreateUser extends BaseClass{
 	
 	  public static RandomValues randomValues = new RandomValues();
-	  public static Camera Camera = new Camera();
+	  public static Camera camera = new Camera();
 	  // Declare basic credentials for alias registration
 	  public static String testEmailCredentials = "milleroks1992+";
 	  public static String testEmailProvider = "@gmail.com";
 	  public static String enter = "\n";
-	  // Declare screenshots path
-	  String screenshotLocation = System.getProperty("user.home") + "/Desktop"; 
-	  String folderName = Long.toString(System.currentTimeMillis()) + "-createStandardUser";
    
 	@Test
-	 public void createStandartUser(){
+	 public static void createStandartUser(){
         //Test starts from Splash Screen Activity
-		//Make sure the user is logged out in order to register a new user
-		//logout();
         // Click Join Now and go to Activity_Join_Step_One
-        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/linearLayoutT"))).click();
-      
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/linearLayoutT")));
+        MobileElement join = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/linearLayoutT"));
+        join.click();
+
+        //Registration process has 4 Steps, step is mandatory, entering name others are optional.
+        
         //Step1: Enter Credentials
         enterCredentials();
-        driver.hideKeyboard();
-        screenshot(screenshotLocation, folderName);
         nextStep();
         
         //Step 2:
         //Add photo (Choose takePhoto or chooseFromLibrary method):
-        Camera.openCamera(driver);
-        Camera.takePhoto(driver);
+        camera.openCamera(driver);
+        camera.takePhoto(driver);
         //camera.chooseFromLibrary(driver);
         enterFullName();
-        driver.hideKeyboard();
-        screenshot(screenshotLocation, folderName);
         nextStep();
 
         //Step 3:
         enableLocation();
         enableNotification();
-        screenshot(screenshotLocation, folderName);
         nextStep();
               
-        //Step 4: Add credit card (add a card or skip the step, card is mandatory to make a call)
+        //Step 4: Add credit card (add a card or skip the step)
         addCreditCard();
         //skipAddingCard();
-        screenshot(screenshotLocation, folderName);
         nextStep();
         
         //Finish
@@ -132,13 +121,6 @@ public class CreateUser extends BaseClass{
         txtExpDate.setValue("1219");
         MobileElement txtCVV = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/et_cvc_number"));
         txtCVV.setValue("123");
-	}
-	
-	public static void skipAddingCard(){
-		//Click 'Remind me later' link
-		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/txtRemindMeLater")));
-        MobileElement remindLater = (MobileElement) driver.findElement(By.id("com.mindshare.magnifi:id/txtRemindMeLater"));
-        remindLater.click();
 	}
 	
 	public static void clickSearch(){

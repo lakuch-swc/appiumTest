@@ -20,7 +20,6 @@ public class CallTest extends BaseClass {
 	@Test
 	public void makeCall() throws InterruptedException, IOException {
 		
-		logout();
 		login(user, password);
 		search(searchUser);
 		

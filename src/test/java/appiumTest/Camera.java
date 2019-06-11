@@ -27,7 +27,7 @@ public class Camera {
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Take Photo']")));
         driver.findElement(By.xpath("//*[@text='Take Photo']")).click();
         //Inside the camera take a photo
-        new WebDriverWait(driver, 40).until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.camera2:id/shutter_button")));
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.camera2:id/shutter_button")));
         MobileElement btn_shutter = (MobileElement) driver.findElement(By.id("com.android.camera2:id/shutter_button"));
         btn_shutter.click();
         // Inside the camera click 'done'
@@ -36,7 +36,7 @@ public class Camera {
         btn_done.click();
 	}
 	
-	public  void takeVideo(AppiumDriver driver) {
+	public void takeVideo(AppiumDriver driver) {
 		//Choose option 'Take Video'
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Take Video']")));
         driver.findElement(By.xpath("//*[@text='Take Video']")).click();
