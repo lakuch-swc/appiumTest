@@ -1,6 +1,6 @@
 package appiumTest;
 
-public class RandomValues {
+public class RandomValuesClass {
 
     public int getRandomAlias(){
         int max = 1000;
