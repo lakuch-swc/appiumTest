@@ -47,23 +47,7 @@ public class BaseClass {
 		driver.quit();
 	}
 	
-	public void screenshot(String pathScreenshot) throws IOException {
-		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
-
-		String parentFolderPath = pathScreenshot + "\\" + deviceName;
-		File parentFolder = new File(parentFolderPath);
-		
-		try {
-			parentFolder.mkdir();
-		} finally {}
-		
-		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
-		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
-	    File targetFile = new File(parentFolderPath + "\\" + filename +".jpg");
-	    FileUtils.copyFile(srcFile, targetFile);
-	}
-	
-	public void screenshot(String pathScreenshot, String folderName) throws IOException {
+	public void screenshot(String pathScreenshot, String folderName) {
 		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
 
 		String parentFolderPath = pathScreenshot + "\\" + deviceName;
@@ -79,10 +63,15 @@ public class BaseClass {
 		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
 		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
 	    File targetFile = new File(childFolderPath + "\\" + filename +".jpg");
-	    FileUtils.copyFile(srcFile, targetFile);
+	    
+	    try {
+			FileUtils.copyFile(srcFile, targetFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	public void login(String email, String password) throws InterruptedException {
+	public void login(String email, String password) {
 		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
 		
@@ -93,15 +82,25 @@ public class BaseClass {
 			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/txtPassword"))).sendKeys(password);
 			driver.hideKeyboard();
 			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/logInButton"))).click();
-			Thread.sleep(10000);
+			
+			try {
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		} 
 
 	}
 	
-	public void logout() throws InterruptedException {
+	public void logout() {
 		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
-		Thread.sleep(5000);
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 		if (driver.findElements(By.xpath("//android.widget.TextView[@text='Log out']")).size() != 0) {
 			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text='Log out']"))).click();
