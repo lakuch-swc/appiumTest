@@ -40,7 +40,7 @@ public class CreateUserTest extends BaseClass{
         new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/linearLayoutT"))).click();
       
         //Step1: Enter Credentials
-       // enterCredentials();
+        enterCredentials();
         driver.hideKeyboard();
         screenshot(screenshotLocation, folderName);
         nextStep();
