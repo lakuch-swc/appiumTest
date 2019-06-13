@@ -28,7 +28,7 @@ public class BaseClass {
 		dc.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
 		dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0.0");
 		dc.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel");
-		//dc.setCapability(MobileCapabilityType.UDID, "emulator-5554");
+		dc.setCapability(MobileCapabilityType.UDID, "emulator-5554");
 		//dc.setCapability(MobileCapabilityType.UDID, "ce0817183134080403");
 		dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30);
         dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.mindshare.magnifi");
@@ -45,6 +45,27 @@ public class BaseClass {
 	@AfterTest
 	public void teardown() {
 		driver.quit();
+	}
+	
+	public void screenshot(String pathScreenshot) {
+		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
+
+		String parentFolderPath = pathScreenshot + "\\" + deviceName;
+		File parentFolder = new File(parentFolderPath);
+		
+		try {
+			parentFolder.mkdir();
+		} finally {}
+		
+		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
+		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
+	    File targetFile = new File(parentFolderPath + "\\" + filename +".jpg");
+	    
+	    try {
+			FileUtils.copyFile(srcFile, targetFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void screenshot(String pathScreenshot, String folderName) {

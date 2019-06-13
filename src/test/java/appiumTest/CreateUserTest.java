@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CreateUserTest extends BaseClass{
 	
 	  private RandomValuesClass randomValues = new RandomValuesClass();
-	  private CameraClass Camera = new CameraClass();
+	  private CameraClass camera = new CameraClass();
 	  // Declare basic credentials for alias registration
 	  private  String testEmailCredentials = "milleroks1992+";
 	  private String testEmailProvider = "@gmail.com";
@@ -47,8 +47,8 @@ public class CreateUserTest extends BaseClass{
         
         //Step 2:
         //Add photo (Choose takePhoto or chooseFromLibrary method):
-        Camera.openCamera(driver);
-        Camera.takePhoto(driver);
+        camera.openCamera(driver);
+        camera.takePhoto(driver);
         //camera.chooseFromLibrary(driver);
         enterFullName();
         driver.hideKeyboard();
