@@ -19,6 +19,7 @@ public class SendChatMessages extends BaseClass {
     @Test
     public void testSendChatMessages() throws IOException, InterruptedException {
     	// Make sure user is logged in.
+    	logout();
 	 	login(userName, passWord);
 	   	screenshot(screenshotsFolder, screenshotsSubFolder);
         
@@ -26,6 +27,7 @@ public class SendChatMessages extends BaseClass {
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/expertSearchEditText"))).sendKeys(expertName);
         screenshot(screenshotsFolder, screenshotsSubFolder);
         
+        // Execute Search Command from KB.
         driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "Search"));
         screenshot(screenshotsFolder, screenshotsSubFolder);
         
@@ -51,15 +53,9 @@ public class SendChatMessages extends BaseClass {
         screenshot(screenshotsFolder, screenshotsSubFolder);
         new WebDriverWait(driver, 50).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
         screenshot(screenshotsFolder, screenshotsSubFolder);
-        try 
-        {
-		  logout();
-	      screenshot(screenshotsFolder, screenshotsSubFolder);
-        } 
-        catch (InterruptedException e) 
-        {
-		  e.printStackTrace();
-		}       
+
+	    logout();
+	    screenshot(screenshotsFolder, screenshotsSubFolder);
         
         // Pause ...
         try 
