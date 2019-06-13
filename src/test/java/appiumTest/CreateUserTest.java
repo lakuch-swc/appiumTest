@@ -15,10 +15,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  other steps are optional and can be skipped.
  Before running the test, make sure to adjust the basic credentials and the screenshots path */
 
-public class CreateUser extends BaseClass{
+public class CreateUserTest extends BaseClass{
 	
-	  private RandomValues randomValues = new RandomValues();
-	  private Camera Camera = new Camera();
+	  private RandomValuesClass randomValues = new RandomValuesClass();
+	  private CameraClass Camera = new CameraClass();
 	  // Declare basic credentials for alias registration
 	  private  String testEmailCredentials = "milleroks1992+";
 	  private String testEmailProvider = "@gmail.com";

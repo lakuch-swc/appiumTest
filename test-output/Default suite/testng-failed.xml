@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="appiumTest.CreateUser">
+      <class name="appiumTest.SearchTest">
         <methods>
-          <include name="createStandartUser"/>
+          <include name="searchTextFileForUsers"/>
           <include name="teardown"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- appiumTest.CreateUser -->
+      </class> <!-- appiumTest.SearchTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

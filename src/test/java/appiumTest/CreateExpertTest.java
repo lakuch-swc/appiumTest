@@ -8,8 +8,8 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.MobileElement;
 
-public class CreateExpert extends BaseClass {
-	public static Camera camera = new Camera();
+public class CreateExpertTest extends BaseClass {
+	public static CameraClass camera = new CameraClass();
 
 	public static String strTitle = "AutomationTesting";
 	public static String strDescription = "Testing: here should be additional information about the expert";
