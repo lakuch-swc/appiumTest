@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
-public class Camera {
+public class CameraClass {
 	
 	public void openCamera(AppiumDriver driver) {
 		//Add photo or edit the existing one 
