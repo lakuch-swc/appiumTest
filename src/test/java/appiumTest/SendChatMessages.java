@@ -8,8 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SendChatMessages extends BaseClass {
-	final String screenshotsFolder    = "C:\\Users\\student\\Desktop\\";
-	final String screenshotsSubFolder = "SendChatMessages_Testing";
+	final String screenshotsFolder    = System.getProperty("user.home") + "\\Desktop";
+	final String screenshotsSubFolder = "SendChatMessagesTesting_" + Long.toString(System.currentTimeMillis());
 	
 	final String userName   = "salahdau@yahoo.com";
 	final String passWord   = "Abcd1234";
@@ -20,10 +20,10 @@ public class SendChatMessages extends BaseClass {
     public void testSendChatMessages() throws IOException, InterruptedException {
     	// Make sure user is logged in.
     	logout();
-	 	login(userName, passWord);
-	   	screenshot(screenshotsFolder, screenshotsSubFolder);
+    	login(userName, passWord);
+    	screenshot(screenshotsFolder, screenshotsSubFolder);
         
-	   	// Enter Keyword or Expert_Name to Search
+    	// Enter Keyword or Expert_Name to Search
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/expertSearchEditText"))).sendKeys(expertName);
         screenshot(screenshotsFolder, screenshotsSubFolder);
         
@@ -54,18 +54,16 @@ public class SendChatMessages extends BaseClass {
         new WebDriverWait(driver, 50).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
         screenshot(screenshotsFolder, screenshotsSubFolder);
 
-	    logout();
-	    screenshot(screenshotsFolder, screenshotsSubFolder);
+        logout();
+        screenshot(screenshotsFolder, screenshotsSubFolder);
         
         // Pause ...
-        try 
+        try {
+        	Thread.sleep(3000);
+        } catch (InterruptedException e) 
         {
-		  Thread.sleep(3000);
-		} 
-        catch (InterruptedException e) 
-        {
-		  e.printStackTrace();
-		}               
+        	e.printStackTrace();
+        }               
         screenshot(screenshotsFolder, screenshotsSubFolder);        
     }
 }
