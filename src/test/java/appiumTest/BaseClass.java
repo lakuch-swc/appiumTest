@@ -15,20 +15,27 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 public class BaseClass {
-
 	protected static AppiumDriver<MobileElement> driver;
+	protected static AppiumDriverLocalService service;
+	
+	private static String OS = System.getProperty("os.name").toLowerCase();
+	
+	String systemPlatform;
 	
 	@BeforeTest
 	public void setup() {
+		service = AppiumDriverLocalService.buildDefaultService();
+		service.start();
 		
 		DesiredCapabilities dc = new DesiredCapabilities();
-		
 		dc.setCapability(MobileCapabilityType.PLATFORM_NAME, "ANDROID");
 		dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0.0");
 		dc.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel");
 		dc.setCapability(MobileCapabilityType.UDID, "emulator-5554");
+		//dc.setCapability(MobileCapabilityType.UDID, "emulator-5556");
 		//dc.setCapability(MobileCapabilityType.UDID, "ce0817183134080403");
 		dc.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30);
         dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.mindshare.magnifi");
@@ -37,55 +44,70 @@ public class BaseClass {
         dc.setCapability("autoAcceptAlerts", true);
         dc.setCapability("autoDismissAlerts", true);
         dc.setCapability("noReset", true);
-
+		
 		driver = new AppiumDriver<MobileElement>(dc);
 		
+		if (OS.indexOf("win") >= 0) {
+			systemPlatform = "_Win";
+		} else if (OS.indexOf("mac") >= 0) {
+			systemPlatform = "_Mac";
+		} else {
+			systemPlatform = null;
+		}
 	}
 	
 	@AfterTest
 	public void teardown() {
 		driver.quit();
+		service.stop();
 	}
 	
-	public void screenshot(String pathScreenshot) {
+	public void screenshot(String screenshotPath, String folderName) {	
 		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
-
-		String parentFolderPath = pathScreenshot + "\\" + deviceName;
-		File parentFolder = new File(parentFolderPath);
 		
-		try {
-			parentFolder.mkdir();
-		} finally {}
+		String parentFolderPath, childFolderPath, filename ;
+		File parentFolder, childFolder, srcFile = null, targetFile = null;
 		
-		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
-		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
-	    File targetFile = new File(parentFolderPath + "\\" + filename +".jpg");
-	    
-	    try {
-			FileUtils.copyFile(srcFile, targetFile);
-		} catch (IOException e) {
-			e.printStackTrace();
+		switch (systemPlatform) {
+			case "_Win":	
+				   	parentFolderPath = screenshotPath + "\\" + deviceName;
+				   	parentFolder = new File(parentFolderPath);
+				   	childFolderPath = parentFolder + "\\" + folderName;
+				   	childFolder = new File(childFolderPath);
+				
+				   	try {
+				   		parentFolder.mkdir();
+				   		childFolder.mkdir();
+				   	} finally {}
+				
+				   	srcFile = driver.getScreenshotAs(OutputType.FILE);	
+				   	filename = Long.toString(System.currentTimeMillis()) + systemPlatform;
+				   	targetFile = new File(childFolderPath + "\\" + filename +".jpg");
+				
+				   	break;
+		 
+			case "_Mac":
+					screenshotPath = screenshotPath.replace("\\", "/");
+					parentFolderPath = screenshotPath + "/" + deviceName;
+					parentFolder = new File(parentFolderPath);
+					childFolderPath = parentFolder + "/" + folderName;
+					childFolder = new File(childFolderPath);
+		
+					try {
+						parentFolder.mkdir();
+						childFolder.mkdir();
+					} finally {}
+		
+					srcFile = driver.getScreenshotAs(OutputType.FILE);	
+					filename = Long.toString(System.currentTimeMillis()) + systemPlatform;
+					targetFile = new File(childFolderPath + "/" + filename +".jpg");	
+		     
+					break;
+		
+			default:break;
 		}
-	}
 	
-	public void screenshot(String pathScreenshot, String folderName) {
-		String deviceName = driver.getCapabilities().getCapability(MobileCapabilityType.DEVICE_NAME).toString();
-
-		String parentFolderPath = pathScreenshot + "\\" + deviceName;
-		File parentFolder = new File(parentFolderPath);
-		String childFolderPath = parentFolder + "\\" + folderName;
-		File childFolder = new File(childFolderPath);
-		
 		try {
-			parentFolder.mkdir();
-			childFolder.mkdir();
-		} finally {}
-		
-		File srcFile = driver.getScreenshotAs(OutputType.FILE);		
-		String filename = Long.toString(System.currentTimeMillis()) + "-" + deviceName;
-	    File targetFile = new File(childFolderPath + "\\" + filename +".jpg");
-	    
-	    try {
 			FileUtils.copyFile(srcFile, targetFile);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -93,7 +115,6 @@ public class BaseClass {
 	}
 	
 	public void login(String email, String password) {
-		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
 		
 		if (driver.findElements(By.xpath("//android.widget.TextView[@text='Log in']")).size() != 0) {
@@ -110,11 +131,9 @@ public class BaseClass {
 				e.printStackTrace();
 			}
 		} 
-
 	}
 	
 	public void logout() {
-		
 		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
 		
 		try {
@@ -127,5 +146,4 @@ public class BaseClass {
 			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.TextView[@text='Log out']"))).click();
 		}
 	}
-	
 }
