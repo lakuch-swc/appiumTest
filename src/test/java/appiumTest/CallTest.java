@@ -11,7 +11,7 @@ import com.google.common.collect.ImmutableMap;
 
 public class CallTest extends BaseClass {
 	
-	String screenshotLocation = System.getProperty("user.home") + "/Desktop"; 
+	String screenshotLocation = System.getProperty("user.home") + "\\Desktop"; 
 	String folderName = Long.toString(System.currentTimeMillis()) + "-callTest";
 	String user = "willisstudenttest+ws001@gmail.com";
 	String password = "1P@ssw0rd";
