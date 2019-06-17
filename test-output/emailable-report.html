@@ -9,19 +9,18 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">51,909</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">91,762</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">appiumTest.FeedbackTest</td><td><a href="#m0">testSendChatMessages</a></td><td rowspan="1">1560277882790</td><td rowspan="1">38171</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">appiumTest.SendChatMessages</td><td><a href="#m0">testSendChatMessages</a></td><td rowspan="1">1560433500699</td><td rowspan="1">76045</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">appiumTest.FeedbackTest#testSendChatMessages</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.id: com.mindshare.magnifi:id/drawable_left_icon (tried for 30 second(s) with 500 milliseconds interval)
+<h2>Default test</h2><h3 id="m0">appiumTest.SendChatMessages#testSendChatMessages</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.id: com.mindshare.magnifi:id/chatImageView (tried for 20 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at appiumTest.BaseClass.logout(BaseClass.java:103)
-	at appiumTest.FeedbackTest.testSendChatMessages(FeedbackTest.java:35)
+	at appiumTest.SendChatMessages.testSendChatMessages(SendChatMessages.java:35)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
@@ -46,15 +45,14 @@
 Caused by: org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-58N19LR&apos;, ip: &apos;192.168.56.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_171&apos;
+System info: host: &apos;DESKTOP-R0SKLPQ&apos;, ip: &apos;192.168.211.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_211&apos;
 Driver info: io.appium.java_client.AppiumDriver
-Capabilities {appActivity: .view.SplashScreenActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, databaseEnabled: false, desired: {appActivity: .view.SplashScreenActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, deviceName: Pixel, newCommandTimeout: 30, noReset: true, platformName: android, platformVersion: 8.0.0, udid: emulator-5554}, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenSize: 1440x2880, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 30, noReset: true, platform: LINUX, platformName: LINUX, platformVersion: 9, takesScreenshot: true, udid: emulator-5554, warnings: {}, webStorageEnabled: false}
-Session ID: 3951fd5e-7d80-4c9f-ba28-b67e8cb05178
-*** Element info: {Using=id, value=com.mindshare.magnifi:id/drawable_left_icon}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+Capabilities {appActivity: .view.SplashScreenActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, databaseEnabled: false, desired: {appActivity: .view.SplashScreenActivity, appPackage: com.mindshare.magnifi, autoAcceptAlerts: true, autoDismissAlerts: true, autoGrantPermissions: true, deviceName: Pixel, newCommandTimeout: 30, noReset: true, platformName: android, platformVersion: 8.0.0, udid: emulator-5554}, deviceManufacturer: Google, deviceModel: Android SDK built for x86, deviceName: emulator-5554, deviceScreenSize: 480x800, deviceUDID: emulator-5554, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 30, noReset: true, platform: LINUX, platformName: LINUX, platformVersion: 8.1.0, takesScreenshot: true, udid: emulator-5554, warnings: {}, webStorageEnabled: false}
+Session ID: 5855fb7b-d9f3-4fdc-8ccc-5cf81566df1e
+*** Element info: {Using=id, value=com.mindshare.magnifi:id/chatImageView}
+	at sun.reflect.GeneratedConstructorAccessor13.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -76,7 +74,7 @@ Session ID: 3951fd5e-7d80-4c9f-ba28-b67e8cb05178
 	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:182)
 	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 27 more
+	... 26 more
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

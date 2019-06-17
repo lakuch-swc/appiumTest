@@ -68,7 +68,6 @@ public class BaseClass {
 		String parentFolderPath, childFolderPath, filename ;
 		File parentFolder, childFolder, srcFile = null, targetFile = null;
 		
-		
 		switch (systemPlatform) {
 			case "_Win":	
 				   	parentFolderPath = screenshotPath + "\\" + deviceName;
