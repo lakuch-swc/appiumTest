@@ -15,6 +15,7 @@ public class HelpTest extends BaseClass {
 	final String expertName = "lakuch";
 
     public void testHelp() throws IOException, InterruptedException {        
+    	
     	// Click on the Main_Menu Icon.
 	    new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
 	    screenshot(screenshotsFolder, screenshotsSubFolder);

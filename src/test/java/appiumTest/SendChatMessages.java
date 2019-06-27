@@ -18,6 +18,7 @@ public class SendChatMessages extends BaseClass {
 
     @Test
     public void testSendChatMessages() throws IOException, InterruptedException {
+    	
     	// Make sure user is logged in.
     	logout();
     	login(userName, passWord);
