@@ -20,7 +20,7 @@ public class CreateUserTest extends BaseClass {
 	private CameraClass camera = new CameraClass();
 	
 	// Declare basic credentials for alias registration
-	private  String testEmailCredentials = "milleroks1992+";
+	private  String testEmailCredentials = "mrjohndoetestemail+"; //password = 1P@ssw0rd
 	private String testEmailProvider = "@gmail.com";
 	private String enter = "\n";
 	
