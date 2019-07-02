@@ -20,7 +20,7 @@ public class CreateUserTest extends BaseClass{
 	  private RandomValuesClass randomValues = new RandomValuesClass();
 	  private CameraClass camera = new CameraClass();
 	  // Declare basic credentials for alias registration
-	  private  String testEmailCredentials = "milleroks1992+";
+	  private String testEmailCredentials = "milleroks1992+";
 	  private String testEmailProvider = "@gmail.com";
 	  private String enter = "\n";
 	  // Declare screenshots path

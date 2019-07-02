@@ -7,20 +7,17 @@ import com.google.common.collect.ImmutableMap;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class SendChatMessages extends BaseClass {
+public class SendChatMessagesTest extends BaseClass {
 	final String screenshotsFolder    = System.getProperty("user.home") + "\\Desktop";
-	final String screenshotsSubFolder = "SendChatMessagesTesting_" + Long.toString(System.currentTimeMillis());
+	final String screenshotsSubFolder = Long.toString(System.currentTimeMillis()) + "-SendChatMessagesTesting";
 	
-	final String userName   = "salahdau@yahoo.com";
-	final String passWord   = "Abcd1234";
-	
-	final String expertName = "lakuch";
+	String uEmail = "zswhatever+146@gmail.com", pWord = "Test1234", expertName = "ws002";
 
     @Test
     public void testSendChatMessages() throws IOException, InterruptedException {
-    	// Make sure user is logged in.
+    	// Make sure user is logged out at the beginning of the test.
     	logout();
-    	login(userName, passWord);
+    	login(uEmail, pWord);
     	screenshot(screenshotsFolder, screenshotsSubFolder);
         
     	// Enter Keyword or Expert_Name to Search

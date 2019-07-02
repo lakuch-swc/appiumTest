@@ -1,19 +1,19 @@
 package appiumTest;
 
-import org.testng.annotations.Test;
 import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
-@Test
-public class HelpTest extends BaseClass {
+public class HowItWorksTest extends BaseClass {
 	final String screenshotsFolder    = System.getProperty("user.home") + "\\Desktop";
-	final String screenshotsSubFolder = "HelpTesting_" + Long.toString(System.currentTimeMillis());
+	final String screenshotsSubFolder = "HowItWorksTesting_" + Long.toString(System.currentTimeMillis());
 
 	final String expertName = "lakuch";
 
-    public void testHelp() throws IOException, InterruptedException {        
+    @Test
+    public void testHowItWorks() throws IOException, InterruptedException {        
     	// Click on the Main_Menu Icon.
 	    new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
 	    screenshot(screenshotsFolder, screenshotsSubFolder);
