@@ -70,9 +70,9 @@ public class BaseClass {
 		
 		switch (systemPlatform) {
 			case "_Win":	
-				   	parentFolderPath = screenshotPath + "\\" + deviceName;
+				   	parentFolderPath = screenshotPath + "\\win_" + deviceName;
 				   	parentFolder = new File(parentFolderPath);
-				   	childFolderPath = parentFolder + "\\" + folderName;
+				   	childFolderPath = parentFolder + "\\" + folderName + systemPlatform;
 				   	childFolder = new File(childFolderPath);
 				
 				   	try {
@@ -88,9 +88,9 @@ public class BaseClass {
 		 
 			case "_Mac":
 					screenshotPath = screenshotPath.replace("\\", "/");
-					parentFolderPath = screenshotPath + "/" + deviceName;
+					parentFolderPath = screenshotPath + "/mac_" + deviceName;
 					parentFolder = new File(parentFolderPath);
-					childFolderPath = parentFolder + "/" + folderName;
+					childFolderPath = parentFolder + "/" + folderName + systemPlatform;
 					childFolder = new File(childFolderPath);
 		
 					try {
