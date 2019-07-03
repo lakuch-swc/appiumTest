@@ -14,7 +14,7 @@ import com.google.common.collect.ImmutableMap;
 public class SearchTest extends BaseClass {
 	
 	File userFile = new File("users.txt");
-	String screenshotLocation = System.getProperty("user.home") + "\\Desktop"; 
+	String screenshotLocation = System.getProperty("user.home") + "/Desktop"; 
 	String folderName = Long.toString(System.currentTimeMillis()) + "-searchTest";
 	
 	@Test
