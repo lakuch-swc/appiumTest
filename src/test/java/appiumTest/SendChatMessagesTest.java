@@ -17,6 +17,8 @@ public class SendChatMessagesTest extends BaseClass {
     public void testSendChatMessages() throws IOException, InterruptedException {
     	// Make sure user is logged out at the beginning of the test.
     	logout();
+    	
+    	// The user must get logged in to send messages.
     	login(uEmail, pWord);
     	screenshot(screenshotsFolder, screenshotsSubFolder);
         
@@ -43,7 +45,7 @@ public class SendChatMessagesTest extends BaseClass {
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/btn_send"))).click();       
         screenshot(screenshotsFolder, screenshotsSubFolder);
         
-        // Return to main menu and Log out
+        // Return to main menu ....
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/backTextView"))).click();   
         screenshot(screenshotsFolder, screenshotsSubFolder);
         new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/backTextView"))).click(); 
@@ -51,6 +53,7 @@ public class SendChatMessagesTest extends BaseClass {
         new WebDriverWait(driver, 50).until(ExpectedConditions.presenceOfElementLocated(By.id("com.mindshare.magnifi:id/drawable_left_icon"))).click();
         screenshot(screenshotsFolder, screenshotsSubFolder);
 
+        // and Log out...
         logout();
         screenshot(screenshotsFolder, screenshotsSubFolder);
         
